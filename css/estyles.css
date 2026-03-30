@@ -1,0 +1,608 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --bg-color: rgba(47, 23, 15, 0.9);
+    --second-bg-color: #df902a;
+    --text-color: #e1e1e1;
+    --hover-color: rgba(255, 255, 255, 0.4);
+
+    --font-sans: "Open Sans", sans-serif;
+    --font-pacifico: "Pacifico", cursive;
+}
+
+html {
+    font-size: 62.5%;    /*1 rem = 10px*/
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--font-sans);
+}
+
+@media (max-width: 768px) {
+    body{
+        font-size: 1.4rem;
+    }
+}
+
+/* Utilidades 
+=================================*/
+.container {
+    width: 100%;
+    max-width: 100rem;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 2rem 3rem;
+    background-color: var(--second-bg-color);
+    border-radius: 1rem;
+    font-weight: 600;
+    color: var(--bg-color);
+    font-size: 1.8rem;
+    transition-duration: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.title2 {
+    font-family: var(--font-pacifico);
+    font-size: 4rem;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+/* Video
+=================================*/
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Header
+=================================*/
+.header{
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+@media (max-width: 992px) {
+    .header{
+        height: 100%;
+        padding-bottom: 5rem;
+    }
+}
+
+.header-logo{
+    margin: 3rem 0;
+}
+
+.header-logo h1 {
+    color: var(--second-bg-color);
+    font-family: var(--font-pacifico);
+    font-size: 4rem;
+}
+
+.header-logo h2 {
+    text-transform: uppercase;
+    color: var(--text-color);
+    font-size: 3rem;
+}
+
+/* CORRECCIÓN 1: navbar con ul/li — se eliminan los estilos de <a> directos
+   y se adaptan a la nueva estructura ul > li > a */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background-color: var(--bg-color);
+    padding: 3rem 0;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.navbar a:hover {
+    color: var(--second-bg-color);
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 2rem;
+    }
+
+    .navbar a {
+        font-size: 1.3rem;
+    }
+
+    .header-logo h1 {
+        font-size: 2rem;
+    }
+
+    .header-logo h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Welcome
+=================================*/
+.welcome-content {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    max-width: 45rem;
+    padding: 5rem 2rem;
+    border-radius: 2rem;
+    margin-top: 3rem;
+}
+
+.welcome-content span {
+    display: block;
+}
+
+.welcome-content h2 span:first-child {
+    color: var(--second-bg-color);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.welcome-content h2 span:last-child {
+    font-weight: 100;
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+}
+
+.welcome-content p {
+    line-height: 1.75;
+    margin-bottom: 3rem;
+}
+
+/* CORRECCIÓN 2: se elimina el margin-bottom negativo que podía romper el layout.
+   Si se quería un solapamiento visual, se hace de forma más controlada. */
+.welcome-btn {
+    margin-bottom: 0;
+}
+
+/* Estilos de productos mas vendidos
+=================================*/
+
+.best-sellers {
+    background-image: url(../images/bg-img1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    padding: 3rem 0;
+}
+
+.best-sellers-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    align-content: center;
+    gap: 2rem;
+}
+
+@media (max-width: 576px) {
+    .best-sellers-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.best-sellers-item {
+    background-color: var(--hover-color);
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.best-sellers-item img {
+    width: 70%;
+    border-radius: 1rem;
+}
+
+.best-sellers-item h3 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.best-sellers-item p {
+    margin: 2rem 0;
+}
+
+.best-sellers-item .btn {
+    padding: 1rem 2rem;
+}
+
+/* Estilos de nuevos productos
+=================================*/
+.new-product {
+    padding: 6rem 0;
+    width: 100%;
+    background-image: url(../images/bg-img2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.product-content {
+    position: relative;
+}
+
+.product-content img {
+    width: 100%;
+}
+
+.product-info {
+    position: absolute;
+    top: 30px;
+    right: 15px;
+    width: 40rem;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .product-info {
+        top: 65%;
+        right: auto;
+        left: 50%;
+        width: 95%;
+        transform: translateX(-50%);
+    }
+}
+
+.product-info .title2 {
+    margin-bottom: 2rem;
+    font-size: 4rem;
+}
+
+.product-info p {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+}
+
+.product-info .btn {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* CORRECCIÓN 3: breakpoint unificado a 576px (era 578px, inconsistente) */
+@media (max-width: 576px) {
+    .product-info .title2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .product-info p {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .product-info .btn {
+        font-size: 1.4rem;
+        padding: 1rem 2rem;
+    }
+}
+
+/* Estilos de menu carta 
+=================================*/
+
+.menu {
+    padding: 4rem 0;
+    background-color: var(--second-bg-color);
+}
+
+.menu-content {
+    border: 0.2rem solid var(--bg-color);
+    padding: 1rem;
+}
+
+.menu-content2 {
+    border: 0.2rem solid var(--bg-color);
+    padding: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+}
+
+/* CORRECCIÓN 4: breakpoint unificado a 576px (era 578px, inconsistente) */
+@media (max-width: 576px) {
+    .menu-content2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.menu-content2 article {
+    padding: 2rem;
+}
+
+.menu-content2 article h5 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+.menu-item {
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 0.4rem dotted var(--bg-color);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.menu-item .name,
+.menu-item .price {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.menu-item .price {
+    text-align: end;
+}
+
+.menu-item .desc {
+    grid-column: span 2;
+}
+
+/* Galeria de imagens
+=================================*/
+.gallery {
+    background-color: var(--bg-color);
+    background-image: url(../images/bg-img2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+
+    /* CORRECCIÓN 5: overflow hidden para evitar scroll horizontal en el hover */
+    overflow: hidden;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    opacity: 0.4;
+    transition-duration: 0.5s;
+}
+
+.gallery img:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.1);
+    z-index: 100;
+}
+
+/* Localización
+=================================*/
+
+.location {
+    padding: 6rem 0;
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+}
+
+/* CORRECCIÓN 6: .schedules era <section> en el HTML, ahora es <div>.
+   El selector sigue funcionando igual ya que usamos la clase. */
+.location-content .address,
+.location-content .schedules {
+    padding: 2rem;
+    font-style: normal;
+}
+
+.location-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.location-content p,
+.location-content li {
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.map {
+    width: 100%;
+}
+
+.map iframe {
+    width: 100%;
+    max-height: 60rem;
+}
+
+/* Estilos de pie de página
+=================================*/
+.footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 4rem 0;
+}
+
+.footer a {
+    color: var(--text-color);
+}
+
+.footer-logo {
+    grid-area: footer-logo;
+}
+
+.social-media {
+    grid-area: social-media;
+}
+
+.footer-about {
+    grid-area: footer-about;
+}
+
+.footer-other {
+    grid-area: footer-other;
+}
+
+.footer-text {
+    grid-area: footer-text;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-areas:
+        "footer-logo footer-logo footer-about footer-other"
+        "social-media social-media footer-about footer-other"
+        "footer-text footer-text footer-text footer-text";
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-areas:
+            "footer-logo footer-logo footer-logo footer-about footer-about"
+            "social-media social-media social-media footer-about footer-about"
+            ". . . footer-other footer-other"
+            ". . . footer-other footer-other"
+            "footer-text footer-text footer-text footer-text footer-text";
+    }
+}
+
+@media (max-width: 676px){
+    .footer-content {
+        grid-template-areas:
+            "footer-logo footer-logo"
+            "social-media social-media"
+            "footer-about footer-other"
+            "footer-about footer-other"
+            "footer-text footer-text";
+
+            place-content: center;
+    }
+}
+
+@media (max-width: 420px){
+    .footer-content {
+        grid-template-areas:
+            "footer-logo"
+            "social-media"
+            "footer-about"
+            "footer-other"
+            "footer-text";
+
+            place-content: center;
+    }
+}
+
+.footer-logo {
+    place-self: center;
+}
+
+.footer-logo h2 {
+    color: var(--second-bg-color);
+    font-family: var(--font-pacifico);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.footer-logo .desc {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+/* CORRECCIÓN 7: breakpoint unificado a 576px (era 578px, inconsistente) */
+@media (max-width: 576px){
+    .footer-logo h2{
+        font-size: 2rem;
+    }
+
+    .footer-logo .desc{
+        font-size: 1.6rem;
+    }
+}
+
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 1.5rem;
+}
+
+.social-media a {
+    color: var(--second-bg-color);
+    display: inline-flex;
+    padding: 1rem;
+    border: 0.2rem solid var(--second-bg-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    transition: 0.3s ease;
+}
+
+.social-media a:hover {
+    background-color: var(--second-bg-color);
+    color: var(--bg-color);
+    transform: scale(1.2);
+    box-shadow: 0 0 2rem var(--second-bg-color);
+}
+
+.footer-about h3,
+.footer-other h3 {
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    padding: 0.5rem;
+}
+
+.footer-about ul,
+.footer-other ul {
+    padding-left: 2rem;
+    list-style: none;
+}
+
+.footer-about li,
+.footer-other li {
+    margin-bottom: 1rem;
+}
+
+.footer-about a,
+.footer-other a {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.footer-about a:hover,
+.footer-other a:hover {
+    color: var(--hover-color);
+}
+
+.footer-text {
+    text-align: center;
+    color: var(--hover-color);
+}

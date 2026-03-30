@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CORRECCIÓN 1: Añadida meta description para SEO básico -->
+    <meta name="description" content="Café Don Camilito - La mejor cafetería con los mejores ingredientes. Visítanos y descubre nuestro café especial.">
+    <title>Cafeteria - Don Camilito</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="css/estyles.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <video autoplay muted loop id="bg-video">
+            <source src="videos/welcome-video.webm" type="video/webm">
+            <source src="videos/welcome-video.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="header-logo">
+            <h1>Café Don Camilito</h1>
+            <h2>LA CAFETERIA</h2>
+        </div>
+
+        <!-- CORRECCIÓN 2: Nav con ul/li para mejor semántica y accesibilidad -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- CORRECCIÓN 3: id añadido para que el enlace "Inicio" funcione -->
+        <section class="welcome" id="inicio">
+            <div class="container">
+                <div class="welcome-content">
+                    <h2>
+                        <span>DÉJATE SORPRENDER</span>
+                        <span>TE GUSTARÁ</span>
+                    </h2>
+                    <p>
+                        Trabajamos sólo con los mejores ingredientes. Una vez lo pruebes, nuestro café será la mejor
+                        forma de empezar tu rutina diaria.
+                    </p>
+                    <div class="welcome-btn">
+                        <!-- CORRECCIÓN 4: href con ancla en lugar de vacío -->
+                        <a href="#ubicacion" class="btn">Visítanos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <!-- CORRECCIÓN 5: id añadido para servicios -->
+    <section class="best-sellers" id="servicios">
+        <div class="container">
+            <h2 class="title2">Los más Vendidos</h2>
+
+            <div class="best-sellers-content">
+                <div class="best-sellers-item">
+                    <h3>Café expresso del Valle del Cocora</h3>
+                    <!-- CORRECCIÓN 6: loading="lazy" en imágenes que están debajo del pliegue -->
+                    <img src="images/pro1.jpg" alt="Café expresso del Valle del Cocora" loading="lazy">
+                    <p>Chocolate amargo, melaza, malta Tostado</p>
+                    <a href="#" class="btn">Añadir al carrito $10</a>
+                </div>
+                <div class="best-sellers-item">
+                    <h3>Café expresso del Valle del Cocora</h3>
+                    <img src="images/pro2.jpg" alt="Café expresso del Valle del Cocora" loading="lazy">
+                    <p>Chocolate amargo, melaza, malta Tostado</p>
+                    <a href="#" class="btn">Añadir al carrito $10</a>
+                </div>
+                <div class="best-sellers-item">
+                    <h3>Café expresso del Valle del Cocora</h3>
+                    <img src="images/pro3.jpg" alt="Café expresso del Valle del Cocora" loading="lazy">
+                    <p>Chocolate amargo, melaza, malta Tostado</p>
+                    <a href="#" class="btn">Añadir al carrito $10</a>
+                </div>
+                <div class="best-sellers-item">
+                    <h3>Café expresso del Valle del Cocora</h3>
+                    <img src="images/pro4.jpg" alt="Café expresso del Valle del Cocora" loading="lazy">
+                    <p>Chocolate amargo, melaza, malta Tostado</p>
+                    <a href="#" class="btn">Añadir al carrito $10</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="new-product">
+        <div class="container">
+            <div class="product-content">
+                <picture>
+                    <source media="(max-width: 992px)" srcset="images/new-pro-verical.webp">
+                    <img src="images/new-pro.webp" alt="Nuevo producto: energía helada sin azúcar" loading="lazy">
+                </picture>
+            
+                <div class="product-info">
+                    <h3 class="title2">Presentamos la energía helada</h3>
+                    <p>
+                        Mejora tu día con un poderoso impulso de energía sin azúcar elaborado con sabores de frutas
+                        brillantes y té helado. (Disponible solo Venti)
+                    </p>
+                    <a href="#" class="btn">Ordenar ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORRECCIÓN 7: id añadido para el enlace de navegación -->
+    <section class="menu" id="menu">
+        <h2 class="title2">Menu</h2>
+        <div class="container">
+            <div class="menu-content">
+                <div class="menu-content2">
+                    <article>
+                        <h5>Para Tomar</h5>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                    </article>
+                    <article>
+                        <h5>Para Comer</h5>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                        <div class="menu-item">
+                            <h6 class="name">Lorem, ipsum dolor sit amet</h6>
+                            <p class="price">$10</p>
+                            <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat at sunt
+                                perferendis exercitationem dolorem.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <img src="images/2.jpg" alt="Interior de la cafetería" loading="lazy">
+        <img src="images/4.jpg" alt="Ambiente de la cafetería" loading="lazy">
+        <img src="images/5.jpg" alt="Cafetería Don Camilito" loading="lazy">
+        <img src="images/7.jpg" alt="Cafetería Don Camilito" loading="lazy">
+        <img src="images/pro1.jpg" alt="Producto de cafetería" loading="lazy">
+        <img src="images/pro2.jpg" alt="Producto de cafetería" loading="lazy">
+        <img src="images/pro3.jpg" alt="Producto de cafetería" loading="lazy">
+        <img src="images/pro4.jpg" alt="Producto de cafetería" loading="lazy">
+    </section>
+
+    <!-- CORRECCIÓN 8: id añadido para el ancla "Visítanos" y para contacto -->
+    <section class="location" id="ubicacion">
+        <div class="container">
+            <h2 class="title2">Ubicación</h2>
+            <div class="location-content">
+                <!-- CORRECCIÓN 9: id de contacto para el enlace del nav -->
+                <address class="address" id="contacto">
+                    <h3>Dirección</h3>
+                    <p>Calle Falsa 123, Córdoba, España</p>
+                    <p>Teléfono: <a href="tel:+3434567890">(34) 345 - 67890</a></p>
+                    <p>Email: <a href="mailto:contacto@cafeteria.com">contacto@cafeteria.com</a></p>
+                </address>
+
+                <!-- CORRECCIÓN 10: <section> dentro de <section> cambiado a <div> -->
+                <div class="schedules">
+                    <h3>Horarios</h3>
+                    <ul>
+                        <li>Lunes - Viernes: 8:00 AM - 10:00 PM</li>
+                        <li>Sábado: 9:00 AM - 11:00 PM</li>
+                        <li>Domingo: 10:00 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25188.00985064431!2d-4.763482972559092!3d37.8953454370276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ses!4v1762536295909!5m2!1sen!2ses"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de ubicación de Café Don Camilito">
+            <!-- CORRECCIÓN 11: title añadido al iframe para accesibilidad -->
+        </iframe>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>- CAFÉ DON CAMILITO -</h2>
+                    <p class="desc">LA CAFETERIA</p>
+                </div>
+
+                <!-- CORRECCIÓN 12: aria-label en todos los iconos sociales -->
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
+                    <a href="#" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
+                    <a href="#" aria-label="Pinterest"><i class='bx bxl-pinterest'></i></a>
+                    <a href="#" aria-label="Twitter / X"><i class='bx bxl-twitter'></i></a>
+                </div>
+                <div class="footer-about">
+                    <h3>Sobre nosotros</h3>
+                    <ul>
+                        <li><a href="#">Nuestro café</a></li>
+                        <li><a href="#">Historias y blogs</a></li>
+                        <li><a href="#">Servicio al cliente</a></li>
+                        <li><a href="#">Contáctanos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-other">
+                    <h3>Avisos legales</h3>
+                    <ul>
+                        <li><a href="#">Aviso de privacidad</a></li>
+                        <li><a href="#">Condiciones de uso</a></li>
+                        <li><a href="#">Accesibilidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <p class="footer-text">&copy; 2025 Cafeteria de café Don Camilito.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
