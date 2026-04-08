@@ -626,3 +626,102 @@ body {
     text-align: center;
     color: var(--hover-color);
 }
+
+.testimonios {
+    padding: 6rem 0;
+    width: 100%;
+    background-image: linear-gradient(rgba(47, 23, 15, 0.85), rgba(47, 23, 15, 0.85)), url(../images/bg-img1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* efecto parallax */
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.testimonio-card {
+    background-color: var(--hover-color); 
+    padding: 3rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.testimonio-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.testimonio-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.testimonio-header img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid var(--second-bg-color); 
+}
+
+.testimonio-info h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--second-bg-color);
+}
+
+.testimonio-info p {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.testimonio-review {
+    position: relative;
+    padding-left: 3rem; 
+}
+
+.quote-icon {
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    font-size: 2.5rem;
+    color: var(--second-bg-color);
+    opacity: 0.6;
+}
+
+.testimonio-review p {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    font-style: italic; 
+}
+
+/* Responsive para testimonios */
+@media (max-width: 576px) {
+    .testimonios-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .testimonio-card {
+        padding: 2rem;
+    }
+    
+    .testimonio-review {
+        padding-left: 2.5rem;
+    }
+    
+    .quote-icon {
+        font-size: 2rem;
+    }
+}
