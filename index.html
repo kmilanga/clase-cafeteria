@@ -4,13 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Risaralda Coffee Shop - Especialistas en café de origen y repostería artesanal.">
-    <title>Risaralda Coffee Shop</title>
+    <meta name="description"
+        content="Risaralda Coffee Shop en Córdoba — Especialistas en café de origen, repostería artesanal y té helado. Abierto de lunes a sábado.">
+
+    <!-- Open Graph (redes sociales / WhatsApp) -->
+    <meta property="og:type" content="restaurant">
+    <meta property="og:title" content="Risaralda Coffee Shop — Café de Especialidad en Córdoba">
+    <meta property="og:description"
+        content="Seleccionamos los mejores granos de origen. Repostería artesanal, cold brew y té helado. Ven a visitarnos en Córdoba.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://www.risaraldacoffeeshop.com">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Risaralda Coffee Shop — Café de Especialidad en Córdoba</title>
+
+    <!-- Schema.org LocalBusiness (SEO local crítico) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CafeOrCoffeeShop",
+        "name": "Risaralda Coffee Shop",
+        "description": "Especialistas en café de origen y repostería artesanal en Córdoba.",
+        "url": "https://www.risaraldacoffeeshop.com",
+        "telephone": "+34957123456",
+        "email": "hola@risaraldacoffeeshop.com",
+        "image": "https://www.risaraldacoffeeshop.com/images/og-image.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avda. República 32",
+            "addressLocality": "Córdoba",
+            "addressCountry": "ES"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "08:00",
+                "closes": "20:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "21:00"
+            }
+        ],
+        "servesCuisine": "Café de especialidad",
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR"
+    }
+    </script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/images/favicon_io/site.webmanifest">
+
+    <!-- Preload vídeo hero para evitar flash negro -->
+    <link rel="preload" as="video" href="videos/welcome-video.webm" type="video/webm">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,26 +70,33 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="css/estyles.css">
+
+    <!-- CORRECCIÓN: ruta corregida (estaba como css/estyles.css) -->
+    <link rel="stylesheet" href="estyles.css">
 </head>
 
 <body>
 
+    <!-- Skip-link accesibilidad (WCAG 2.4.1) -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
     <header class="header">
-        <div class="video-overlay"></div>
-        <video autoplay muted loop playsinline id="bg-video">
+        <div class="video-overlay" aria-hidden="true"></div>
+
+        <!-- poster: frame del vídeo exportado como imagen, evita flash negro -->
+        <video autoplay muted loop playsinline id="bg-video" poster="images/hero-poster.jpg" aria-hidden="true">
             <source src="videos/welcome-video.webm" type="video/webm">
             <source src="videos/welcome-video.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
         </video>
 
-        <div class="header-logo">
-            <h1>Risaralda Coffee Shop</h1>
-            <h2>LA CAFETERÍA</h2>
+        <div class="header-logo" aria-hidden="true">
+            <p class="logo-nombre">Risaralda Coffee Shop</p>
+            <p class="logo-sub">LA CAFETERÍA</p>
         </div>
 
-        <nav class="navbar">
-            <ul>
+        <!-- CORRECCIÓN: aria-label en nav, role implícito pero explicitado para lectores de pantalla -->
+        <nav class="navbar" aria-label="Menú principal">
+            <ul role="list">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#menu">Menú</a></li>
@@ -46,13 +105,14 @@
             </ul>
         </nav>
 
-        <section class="welcome" id="inicio">
+        <!-- id para skip-link y para el anchor #inicio -->
+        <section class="welcome" id="inicio" aria-label="Bienvenida">
             <div class="container">
-                <div class="welcome-content">
-                    <h2>
+                <div class="welcome-content" id="main-content">
+                    <h1>
                         <span>DÉJATE SORPRENDER</span>
                         <span>POR EL AROMA</span>
-                    </h2>
+                    </h1>
                     <p>
                         Seleccionamos los mejores granos de origen. Una vez lo pruebes, nuestro café de especialidad
                         será tu momento favorito del día.
@@ -65,244 +125,306 @@
         </section>
     </header>
 
-    <section class="best-sellers" id="servicios">
-        <div class="container">
-            <h2 class="title2">Los más Vendidos</h2>
-            <div class="best-sellers-content">
-                <div class="best-sellers-item">
-                    <h3>Expresso Valle del Cocora</h3>
-                    <img src="images/pro1.jpg" alt="Café expresso del Valle del Cocora" loading="lazy">
-                    <p>Notas a chocolate amargo, melaza y malta tostada.</p>
-                    <a href="#menu" class="btn">Ver detalles</a>
-                </div>
-                <div class="best-sellers-item">
-                    <h3>Latte Macchiato Suave</h3>
-                    <img src="images/pro2.jpg" alt="Latte Macchiato Suave" loading="lazy">
-                    <p>Espuma de leche sedosa con un toque de vainilla natural.</p>
-                    <a href="#menu" class="btn">Ver detalles</a>
-                </div>
-                <div class="best-sellers-item">
-                    <h3>Cold Brew Intenso</h3>
-                    <img src="images/pro3.jpg" alt="Cold Brew Intenso" loading="lazy">
-                    <p>Macerado durante 24 horas para una acidez mínima y gran cuerpo.</p>
-                    <a href="#menu" class="btn">Ver detalles</a>
-                </div>
-                <div class="best-sellers-item">
-                    <h3>Mocaccino de Avellana</h3>
-                    <img src="images/pro4.jpg" alt="Mocaccino de Avellana" loading="lazy">
-                    <p>Combinación perfecta de cacao puro, expresso y sirope casero.</p>
-                    <a href="#menu" class="btn">Ver detalles</a>
+    <main>
+
+        <section class="best-sellers" id="servicios" aria-labelledby="titulo-best-sellers">
+            <div class="container">
+                <h2 class="title2" id="titulo-best-sellers">Los más Vendidos</h2>
+                <div class="best-sellers-content">
+                    <div class="best-sellers-item">
+                        <h3>Expresso Valle del Cocora</h3>
+                        <img src="images/pro2.jpg"
+                            alt="Taza de café expresso del Valle del Cocora con notas a chocolate" loading="lazy"
+                            width="400" height="400">
+                        <p>Café intenso de cuerpo completo acompañado de un tradicional bizcocho de almendras.</p>
+                        <a href="#menu" class="btn">Ver detalles</a>
+                    </div>
+                    <div class="best-sellers-item">
+                        <h3>Café Vienés</h3>
+                        <img src="images/pro1.jpg" alt="Latte Macchiato Suave con espuma de leche sedosa" loading="lazy"
+                            width="400" height="400">
+                        <p>Café intenso de cuerpo completo acompañado de un tradicional bizcocho de almendras.</p>
+                        <a href="#menu" class="btn">Ver detalles</a>
+                    </div>
+                    <div class="best-sellers-item">
+                        <h3>Caffè Latte Art</h3>
+                        <img src="images/pro3.jpg" alt="Vaso de Cold Brew Intenso macerado 24 horas" loading="lazy"
+                            width="400" height="400">
+                        <p>Café con leche aterciopelado, elaborado con granos seleccionados y diseño artesanal.</p>
+                        <a href="#menu" class="btn">Ver detalles</a>
+                    </div>
+                    <div class="best-sellers-item">
+                        <h3>Rolls de Canela</h3>
+                        <img src="images/pro4.jpg" alt="Mocaccino de Avellana con cacao puro y sirope casero"
+                            loading="lazy" width="400" height="400">
+                        <p>Espirales dulces de masa tierna con canela, azúcar perlado y un toque artesano.</p>
+                        <a href="#menu" class="btn">Ver detalles</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="new-product">
-        <div class="container">
-            <div class="product-content">
-                <picture>
-                    <source media="(max-width: 992px)" srcset="images/new-pro-verical.webp">
-                    <img src="images/new-pro.webp" alt="Té helado sin azúcar" loading="lazy">
-                </picture>
-                <div class="product-info">
-                    <h3 class="title2">Presentamos la energía helada</h3>
-                    <p>
-                        Mejora tu día con un poderoso impulso de energía sin azúcar, elaborado con sabores de frutas
-                        brillantes y té negro helado.
-                    </p>
-                    <a href="#ubicacion" class="btn">Pruébalo hoy</a>
+        <section class="new-product" aria-labelledby="titulo-nuevo-producto">
+            <div class="container">
+                <div class="product-content">
+                    <picture>
+                        <source media="(max-width: 992px)" srcset="images/new-pro-verical.webp">
+                        <img src="images/new-pro.webp" alt="Té negro helado sin azúcar con sabores de frutas"
+                            loading="lazy" width="1200" height="800">
+                    </picture>
+                    <div class="product-info">
+                        <h2 class="title2" id="titulo-nuevo-producto">Presentamos la energía helada</h2>
+                        <p>
+                            Mejora tu día con un poderoso impulso de energía sin azúcar, elaborado con sabores de frutas
+                            brillantes y té negro helado.
+                        </p>
+                        <a href="#ubicacion" class="btn">Pruébalo hoy</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="menu" id="menu">
-        <h2 class="title2">Nuestro Menú</h2>
-        <div class="container">
-            <div class="menu-content">
-                <div class="menu-content2">
-                    <article>
-                        <h5>Para Tomar</h5>
-                        <div class="menu-item">
-                            <h6 class="name">Capuchino Clásico</h6>
-                            <p class="price">€3.50</p>
-                            <p class="desc">Un tercio de expresso, leche vaporizada y una gruesa capa de espuma.</p>
+        <section class="menu" id="menu" aria-labelledby="titulo-menu">
+            <h2 class="title2" id="titulo-menu">Nuestro Menú</h2>
+            <div class="container">
+                <div class="menu-content">
+                    <div class="menu-content2">
+                        <article aria-label="Bebidas">
+                            <h3>Para Tomar</h3>
+                            <div class="menu-item">
+                                <h4 class="name">Capuchino Clásico</h4>
+                                <p class="price">€3.50</p>
+                                <p class="desc">Un tercio de expresso, leche vaporizada y una gruesa capa de espuma.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h4 class="name">Matcha Latte Caliente</h4>
+                                <p class="price">€4.20</p>
+                                <p class="desc">Té verde ceremonial japonés batido con leche de avena o almendras.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h4 class="name">Americano Doble</h4>
+                                <p class="price">€2.80</p>
+                                <p class="desc">Dos shots de nuestro café de la casa rebajados con agua filtrada
+                                    caliente.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h4 class="name">Frappé de Caramelo</h4>
+                                <p class="price">€5.00</p>
+                                <p class="desc">Bebida helada licuada con café, hielo, leche y sirope de caramelo
+                                    salado.</p>
+                            </div>
+                        </article>
+                        <article aria-label="Comida">
+                            <h3>Para Comer</h3>
+                            <div class="menu-item">
+                                <h4 class="name">Tostada de Aguacate</h4>
+                                <p class="price">€6.50</p>
+                                <p class="desc">Pan de masa madre, aguacate triturado, semillas de sésamo y un chorrito
+                                    de AOVE.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h4 class="name">Croissant de Mantequilla</h4>
+                                <p class="price">€2.20</p>
+                                <p class="desc">Recién horneado cada mañana. Textura hojaldrada y sabor tradicional
+                                    francés.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h4 class="name">Roll de Canela</h4>
+                                <p class="price">€3.80</p>
+                                <p class="desc">Esponjoso espiral de canela con un glaseado de queso crema casero.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h4 class="name">Bagel de Salmón Ahumado</h4>
+                                <p class="price">€7.00</p>
+                                <p class="desc">Queso crema a las finas hierbas, alcaparras y salmón noruego ahumado.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery" aria-label="Galería de la cafetería">
+            <img src="images/2.jpg" alt="Interior acogedor de Risaralda Coffee Shop en Córdoba" loading="lazy"
+                width="600" height="450">
+            <img src="images/4.jpg" alt="Ambiente cálido de la cafetería con clientes disfrutando" loading="lazy"
+                width="600" height="450">
+            <img src="images/7.jpg" alt="Detalle de café de especialidad preparado en Risaralda Coffee Shop"
+                loading="lazy" width="600" height="450">
+        </section>
+
+        <section class="testimonios" id="testimonios" aria-labelledby="titulo-testimonios">
+            <div class="container">
+                <h2 class="title2" id="titulo-testimonios">Lo Que Dicen Nuestros Clientes</h2>
+
+                <div class="testimonios-grid">
+
+                    <article class="testimonio-card">
+                        <div class="testimonio-header">
+                            <img src="images/testigo1.jpg" alt="Foto de María L., cliente de Córdoba" loading="lazy"
+                                width="60" height="60">
+                            <div class="testimonio-info">
+                                <h3>María L.</h3>
+                                <p>Córdoba</p>
+                                <!-- Estrellas de valoración -->
+                                <p class="stars" role="img" aria-label="Valoración: 5 de 5 estrellas">★★★★★</p>
+                            </div>
                         </div>
-                        <div class="menu-item">
-                            <h6 class="name">Matcha Latte Caliente</h6>
-                            <p class="price">€4.20</p>
-                            <p class="desc">Té verde ceremonial japonés batido con leche de avena o almendras.</p>
-                        </div>
-                        <div class="menu-item">
-                            <h6 class="name">Americano Doble</h6>
-                            <p class="price">€2.80</p>
-                            <p class="desc">Dos shots de nuestro café de la casa rebajados con agua filtrada caliente.
-                            </p>
-                        </div>
-                        <div class="menu-item">
-                            <h6 class="name">Frappé de Caramelo</h6>
-                            <p class="price">€5.00</p>
-                            <p class="desc">Bebida helada licuada con café, hielo, leche y sirope de caramelo salado.
-                            </p>
+                        <div class="testimonio-review">
+                            <i class='bx bxs-quote-left quote-icon' aria-hidden="true"></i>
+                            <p>El mejor café de especialidad que he probado en Córdoba. El ambiente es super acogedor y
+                                el
+                                trato del personal inmejorable. ¡Totalmente recomendado!</p>
                         </div>
                     </article>
-                    <article>
-                        <h5>Para Comer</h5>
-                        <div class="menu-item">
-                            <h6 class="name">Tostada de Aguacate</h6>
-                            <p class="price">€6.50</p>
-                            <p class="desc">Pan de masa madre, aguacate triturado, semillas de sésamo y un chorrito de
-                                AOVE.</p>
+
+                    <article class="testimonio-card">
+                        <div class="testimonio-header">
+                            <img src="images/testigo2.jpg" alt="Foto de Carlos G., turista de Madrid" loading="lazy"
+                                width="60" height="60">
+                            <div class="testimonio-info">
+                                <h3>Carlos G.</h3>
+                                <p>Madrid</p>
+                                <p class="stars" role="img" aria-label="Valoración: 5 de 5 estrellas">★★★★★</p>
+                            </div>
                         </div>
-                        <div class="menu-item">
-                            <h6 class="name">Croissant de Mantequilla</h6>
-                            <p class="price">€2.20</p>
-                            <p class="desc">Recién horneado cada mañana. Textura hojaldrada y sabor tradicional francés.
-                            </p>
-                        </div>
-                        <div class="menu-item">
-                            <h6 class="name">Roll de Canela</h6>
-                            <p class="price">€3.80</p>
-                            <p class="desc">Esponjoso espiral de canela con un glaseado de queso crema casero.</p>
-                        </div>
-                        <div class="menu-item">
-                            <h6 class="name">Bagel de Salmón Ahumado</h6>
-                            <p class="price">€7.00</p>
-                            <p class="desc">Queso crema a las finas hierbas, alcaparras y salmón noruego ahumado.</p>
+                        <div class="testimonio-review">
+                            <i class='bx bxs-quote-left quote-icon' aria-hidden="true"></i>
+                            <p>Descubrimos Risaralda Coffee Shop paseando por la Plaza de las Tendillas y fue un acierto
+                                total. El Mocaccino de
+                                Avellana estaba delicioso y el local tiene un rollo rústico-moderno muy chulo.</p>
                         </div>
                     </article>
+
+                    <article class="testimonio-card">
+                        <div class="testimonio-header">
+                            <img src="images/testigo3.jpg" alt="Foto de Laura S., food blogger de Valencia"
+                                loading="lazy" width="60" height="60">
+                            <div class="testimonio-info">
+                                <h3>Laura S.</h3>
+                                <p>Valencia</p>
+                                <p class="stars" role="img" aria-label="Valoración: 5 de 5 estrellas">★★★★★</p>
+                            </div>
+                        </div>
+                        <div class="testimonio-review">
+                            <i class='bx bxs-quote-left quote-icon' aria-hidden="true"></i>
+                            <p>La tostada de aguacate con masa madre es una locura. Se nota que usan ingredientes de
+                                calidad. Volveré sin duda a probar los rolls de canela.</p>
+                        </div>
+                    </article>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="gallery">
-        <img src="images/2.jpg" alt="Interior de la cafetería" loading="lazy">
-        <img src="images/4.jpg" alt="Ambiente de la cafetería" loading="lazy">
-        <img src="images/7.jpg" alt="Risaralda Coffee Shop" loading="lazy">
-    </section>
+        <section class="location" id="ubicacion" aria-labelledby="titulo-ubicacion">
+            <div class="container">
+                <h2 class="title2" id="titulo-ubicacion">Ubicación y Contacto</h2>
+                <div class="location-content">
+                    <address class="address" id="contacto">
+                        <h3>Dirección</h3>
+                        <p>Avda. República 32, Córdoba, España</p>
+                        <p>Teléfono: <a href="tel:+34957123456">(+34) 957 123 456</a></p>
+                        <p>Email: <a href="mailto:hola@risaraldacoffeeshop.com">hola@risaraldacoffeeshop.com</a></p>
+                    </address>
 
-    <section class="testimonios" id="testimonios">
-        <div class="container">
-            <h2 class="title2">Lo Que Dicen Nuestros Clientes</h2>
-
-            <div class="testimonios-grid">
-                <div class="testimonio-card">
-                    <div class="testimonio-header">
-                        <img src="images/testigo1.jpg" alt="Foto de María L., cliente de Córdoba" loading="lazy">
-                        <div class="testimonio-info">
-                            <h4>María L.</h4>
-                            <p>Córdoba</p>
-                        </div>
+                    <div class="schedules">
+                        <h3>Horarios</h3>
+                        <ul>
+                            <li>Lunes - Viernes: 8:00 AM - 8:00 PM</li>
+                            <li>Sábado: 9:00 AM - 9:00 PM</li>
+                            <li>Domingo: Cerrado por descanso</li>
+                        </ul>
                     </div>
-                    <div class="testimonio-review">
-                        <i class='bx bxs-quote-left quote-icon'></i>
-                        <p>El mejor café de especialidad que he probado en Córdoba. El ambiente es super acogedor y el
-                            trato del personal inmejorable. ¡Totalmente recomendado!</p>
-                    </div>
-                </div>
 
-                <div class="testimonio-card">
-                    <div class="testimonio-header">
-                        <img src="images/testigo2.jpg" alt="Foto de Carlos G., turista de Madrid" loading="lazy">
-                        <div class="testimonio-info">
-                            <h4>Carlos G.</h4>
-                            <p>Madrid</p>
-                        </div>
+                    <!-- Mapa de ubicación -->
+                    <div class="map-inline">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12599.851726716943!2d-4.7884841999999995!3d37.8824148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6cdf26f9af3bbf%3A0x606f52e25862e30!2zQ8OzcmRvYmEsIEVzcGHDsWE!5e0!3m2!1ses!2s!4v1700000000000!5m2!1ses!2s"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Mapa de ubicación de Risaralda Coffee Shop en Córdoba">
+                        </iframe>
                     </div>
-                    <div class="testimonio-review">
-                        <i class='bx bxs-quote-left quote-icon'></i>
-                        <p>Descubrimos Risaralda Coffee Shop paseando por la Plaza de las Tendillas y fue un acierto total. El Mocaccino de
-                            Avellana estaba delicioso y el local tiene un rollo rústico-moderno muy chulo.</p>
-                    </div>
-                </div>
 
-                <div class="testimonio-card">
-                    <div class="testimonio-header">
-                        <img src="images/testigo3.jpg" alt="Foto de Laura S., food blogger de Valencia" loading="lazy">
-                        <div class="testimonio-info">
-                            <h4>Laura S.</h4>
-                            <p>Valencia</p>
-                        </div>
+                    <!-- Formulario de contacto -->
+                    <div class="contact-form-wrapper">
+                        <h3>Escríbenos</h3>
+                        <form class="contact-form" id="contact-form" novalidate aria-label="Formulario de contacto">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required
+                                    autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" required
+                                    autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-submit">
+                                <i class='bx bx-send' aria-hidden="true"></i>
+                                Enviar mensaje
+                            </button>
+                            <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+                        </form>
                     </div>
-                    <div class="testimonio-review">
-                        <i class='bx bxs-quote-left quote-icon'></i>
-                        <p>La tostada de aguacate con masa madre es una locura. Se nota que usan ingredientes de
-                            calidad. Volveré sin duda a probar los rolls de canela.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="location" id="ubicacion">
-        <div class="container">
-            <h2 class="title2">Ubicación y Contacto</h2>
-            <div class="location-content">
-                <address class="address" id="contacto">
-                    <h3>Dirección</h3>
-                    <p>Avda. República 32, Córdoba, España</p>
-                    <p>Teléfono: <a href="tel:+34957123456">(+34) 957 123 456</a></p>
-                    <p>Email: <a href="mailto:hola@risaraldacoffeeshop.com">hola@risaraldacoffeeshop.com</a></p>
-                </address>
-
-                <div class="schedules">
-                    <h3>Horarios</h3>
-                    <ul>
-                        <li>Lunes - Viernes: 8:00 AM - 8:00 PM</li>
-                        <li>Sábado: 9:00 AM - 9:00 PM</li>
-                        <li>Domingo: Cerrado por descanso</li>
-                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12599.851726716943!2d-4.7884841999999995!3d37.8824148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6cdf26f9af3bbf%3A0x606f52e25862e30!2zQ8OzcmRvYmEsIEVzcGHDsWE!5e0!3m2!1ses!2s!4v1700000000000!5m2!1ses!2s"
-            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación de Risaralda Coffee Shop en Córdoba">
-        </iframe>
-    </section>
+        </section>
+        
+    </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h2>- RISARALDA COFFEE SHOP -</h2>
+                    <p class="footer-logo-nombre">- RISARALDA COFFEE SHOP -</p>
                     <p class="desc">LA CAFETERÍA</p>
                 </div>
 
                 <div class="social-media">
-                    <a href="#" aria-label="Facebook"><i class='bx bxl-facebook'></i></a>
-                    <a href="#" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
-                    <a href="#" aria-label="TikTok"><i class='bx bxl-tiktok'></i></a>
+                    <a href="#" aria-label="Síguenos en Facebook"><i class='bx bxl-facebook' aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Síguenos en Instagram"><i class='bx bxl-instagram'
+                            aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Síguenos en TikTok"><i class='bx bxl-tiktok' aria-hidden="true"></i></a>
                 </div>
 
-                <div class="footer-about">
+                <nav class="footer-about" aria-label="Sobre nosotros">
                     <h3>Sobre nosotros</h3>
                     <ul>
                         <li><a href="#">Nuestro origen</a></li>
                         <li><a href="#">Trabaja con nosotros</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
-                </div>
+                </nav>
 
-                <div class="footer-other">
+                <nav class="footer-other" aria-label="Avisos legales">
                     <h3>Avisos legales</h3>
                     <ul>
                         <li><a href="#">Aviso legal</a></li>
                         <li><a href="#">Política de privacidad</a></li>
                         <li><a href="#">Política de cookies</a></li>
                     </ul>
-                </div>
+                </nav>
+
                 <p class="footer-text">© 2026 Risaralda Coffee Shop. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- CTA flotante para móvil (llámanos) -->
+    <a href="tel:+34957123456" class="cta-flotante" aria-label="Llámanos al 957 123 456">
+        <i class='bx bx-phone' aria-hidden="true"></i>
+        <span>Llámanos</span>
+    </a>
+
+    <script src="main.js"></script>
 </body>
 
 </html>
